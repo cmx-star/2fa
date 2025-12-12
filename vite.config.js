@@ -9,9 +9,19 @@ export default defineConfig({
       include: ["buffer"],
       globals: {
         Buffer: true,
+        global: true,
+        process: true,
       },
     }),
   ],
+  define: {
+    global: "globalThis",
+  },
+  resolve: {
+    alias: {
+      buffer: "buffer",
+    },
+  },
   build: {
     outDir: "dist",
     assetsDir: "assets",
