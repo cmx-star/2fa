@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2FA验证码生成器</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>2FA验证码生成器</h1>
+            <button id="themeToggle" class="theme-toggle">🌙</button>
+        </header>
+        
+        <main>
+            <div class="input-section">
+                <label for="secretInput">2FA Secret</label>
+                <div class="input-group">
+                    <input 
+                        type="text" 
+                        id="secretInput" 
+                        placeholder="请输入您的2FA密钥"
+                        autocomplete="off"
+                    >
+                    <button id="submitBtn" class="submit-btn">生成</button>
+                </div>
+                <div class="demo-secret">
+                    <span>演示密钥：</span>
+                    <code id="demoSecret">7J64V3P3E77J3LKNUGSZ5QANTLRLTKVL</code>
+                    <button id="useDemoBtn" class="demo-btn">使用</button>
+                </div>
+            </div>
+
+            <div class="result-section" id="resultSection" style="display: none;">
+                <div class="code-display">
+                    <div class="code-label">当前验证码：</div>
+                    <div class="code-value" id="codeValue">------</div>
+                    <button id="copyBtn" class="copy-btn">
+                        <span id="copyText">复制</span>
+                        <span id="copiedText" style="display: none;">已复制</span>
+                    </button>
+                </div>
+                
+                <div class="info-section">
+                    <div class="info-item">
+                        <span class="info-label">双重密钥：</span>
+                        <code class="info-value" id="secretDisplay">-</code>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">剩余时间：</span>
+                        <span class="info-value" id="timeRemaining">30秒</span>
+                    </div>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>2FA Copyright © 2025 All rights reserved</p>
+        </footer>
+    </div>
+
+    <script type="module" src="/src/app.js"></script>
+</body>
+</html>
+
